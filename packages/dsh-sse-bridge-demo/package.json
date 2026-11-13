@@ -1,0 +1,23 @@
+{
+  "name": "@local/dsh-sse-bridge-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Installable example for @local/dsh-sse-bridge: exposes DSH model routes as an OpenAI-compatible SSE endpoint on http://127.0.0.1:47190/v1.",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dependencies": {
+    "@local/dsh-sse-bridge": "link:../dsh-sse-bridge"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

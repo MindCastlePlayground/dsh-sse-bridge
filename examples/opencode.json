@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "dsh-bridge": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DSH SSE Bridge",
+      "options": {
+        "baseURL": "http://127.0.0.1:47190/v1",
+        "apiKey": "dsh-bridge-local"
+      },
+      "models": {
+        "deepseek-v4.1-flash": {
+          "name": "DeepSeek V4.1 Flash (via DSH bridge)",
+          "limit": { "context": 262144, "output": 32768 }
+        }
+      }
+    }
+  }
+}

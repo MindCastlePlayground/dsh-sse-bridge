@@ -1,0 +1,39 @@
+# Worked example: expose DSH's own models to OpenAI-compatible clients.
+#
+# This is the installer-friendly companion to the framework package.  It is a
+# second instance of the same plugin with a concrete config, so installing it is
+# enough to get a working SSE endpoint — no YAML editing required.
+#
+# After installing, DSH serves:
+#
+#   GET  http://127.0.0.1:47190/v1/health
+#   GET  http://127.0.0.1:47190/v1/models
+#   POST http://127.0.0.1:47190/v1/chat/completions
+#
+# `modelSource: catalog` mirrors whatever model routes DSH already has, including
+# routes registered by dsh-model-gateway, so this row needs no model list.
+#
+# Loopback clients need no credential by default.  Set DSH_SSE_BRIDGE_KEY in the
+# DSH launch environment to require one for non-loopback callers.
+- insert:
+    - id: sse-bridge-example
+      name: '@local/dsh-sse-bridge'
+      config:
+        export:
+          host: 127.0.0.1
+          port: 47190
+          basePath: /v1
+          modelSource: catalog
+          auth:
+            apiKeyEnv: DSH_SSE_BRIDGE_KEY
+            allowLoopbackWithoutKey: true
+          cors:
+            enabled: true
+            origins:
+              - '*'
+          sse:
+            keepAliveMs: 15000
+          limits:
+            maxConcurrent: 8
+            maxBodyBytes: 8388608
+          trace: summary

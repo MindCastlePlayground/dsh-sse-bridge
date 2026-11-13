@@ -1,0 +1,40 @@
+# Logs, coverage and local scratch
+*.log
+logs/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Node
+node_modules/
+.npm/
+.pnpm-store/
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# opencode local provider config written by QUICKSTART
+# (`examples/opencode.json` is the committed template)
+/opencode.json
+/opencode.json.bak*
+
+# asar / probe artifacts from DSH source inspection
+_asar-probe/
+*.asar
+_extract/
+
+# Test scratch
+.tmp/
+tmp/
+*.tmp

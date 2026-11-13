@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Keep Windows-only scripts and patches on CRLF so editors and PowerShell agree.
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary or generated
+*.png binary
+*.jpg binary
+*.ico binary
+*.asar binary

@@ -1,0 +1,32 @@
+{
+  "name": "@local/dsh-sse-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bridge DSH model routes and SSE-speaking upstreams in both directions: import an SSE upstream as a DSH model route, and export DSH models as an OpenAI-compatible SSE server for opencode and other clients.",
+  "exports": {
+    ".": "./index.js",
+    "./sse": "./lib/sse.js",
+    "./config": "./lib/config.js"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "examples/**/*",
+    "docs/*.md",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node --test --test-timeout=30000 \"test/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

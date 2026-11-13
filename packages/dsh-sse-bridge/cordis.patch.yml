@@ -1,0 +1,10 @@
+# The SSE bridge row is dormant until a direction is configured.
+#
+# Install the bundle, then override this row's `config` from your own patch layer
+# (or insert a second `sse-bridge` row with a complete config, as the bundled
+# example does).  Both directions are optional; `export` alone is the common case
+# — it exposes DSH's existing models to opencode and the OpenAI SDKs over SSE.
+- insert:
+    - id: sse-bridge
+      name: '@local/dsh-sse-bridge'
+      config: {}
